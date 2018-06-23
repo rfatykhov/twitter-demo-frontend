@@ -13,6 +13,8 @@ import creode from "./Assets/Creode.png";
 import epiphany from "./Assets/EpiphanySearch.png";
 import people from "./Assets/IconPeople.png";
 
+// Who to follow section styling
+
 const WhoToFollow = styled.div`
   display: inline-block;
   margin-top: 10px;
@@ -20,14 +22,6 @@ const WhoToFollow = styled.div`
   background-color: white;
   padding: 15px 35px;
 `;
-
-const Trends = styled.div`
-  display: inline-block;
-  padding: 15px 5px;
-  background-color: white;
-`;
-
-const Topics = styled.div``;
 
 const WhoFollowText = styled.div`
   color: black;
@@ -49,11 +43,13 @@ const WhoFollowCard = styled.div`
   border-bottom: 1px solid #e1e8ed;
 `;
 
-const WhoFollowName = styled.div`
+const WhoFollowName = styled(Link)`
   display: flex;
+  color: #14171a;
   padding: 5px 5px;
   font-size: 15px;
   font-weight: bold;
+  text-decoration: none;
   cursor: pointer;
     &:hover {
     color: #0072BB;
@@ -66,14 +62,6 @@ const WhoFollowAdress = styled.div`
   padding: 5px 2px;
   font-size: 12px;
   font-color: #707e88;
-  cursor: pointer;
-`;
-
-const AdditionalLink = styled.div`
-  display: inline-block;
-  font-size: 13px;
-  color: #1da1f2;
-  padding: 3px 3px;
   cursor: pointer;
 `;
 
@@ -114,8 +102,37 @@ const FindPeople = styled.div`
 
 const PeopleIcon = styled.img`
   padding-right: 5px;
+  padding-top: 6px;
   cursor: pointer;
+  width: 16px;
+  height: 12px;
 `;
+
+const SmallLink = styled(Link)`
+  display: inline-block;
+
+  color: #1da1f2;
+  font-size: 12px;
+  text-decoration: none;
+  padding: 5px 5px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+//Trends section styling
+
+const Trends = styled.div`
+  display: inline-block;
+  padding: 15px 5px;
+  background-color: white;
+`;
+
+const Topics = styled.div``;
 
 const TrendLink = styled(Link)`
   display: flex;
@@ -181,35 +198,38 @@ const ToFollow = props => {
       <WhoToFollow>
         <WhoFollowSection>
           <WhoFollowText>Who to follow</WhoFollowText>
-          <AdditionalLink>· Refresh · View all</AdditionalLink>
+          <SmallLink to="/who_to_follow/suggestions">
+            · Refresh · View all
+          </SmallLink>
         </WhoFollowSection>
         <WhoFollowCard>
           <WhoFollowAvatar src={appleinsider} />
-          <WhoFollowName>Apple Insider</WhoFollowName>
+          <WhoFollowName to="/appleinsider">Apple Insider</WhoFollowName>
           <WhoFollowAdress>@appleinsider</WhoFollowAdress>
         </WhoFollowCard>
         <WhoFollowBtn>Follow</WhoFollowBtn>
         <WhoFollowCard>
           <WhoFollowAvatar src={creode} />
-          <WhoFollowName>Creode</WhoFollowName>
+          <WhoFollowName to="/creode">Creode</WhoFollowName>
           <WhoFollowAdress>@Creode</WhoFollowAdress>
         </WhoFollowCard>
         <WhoFollowBtn>Follow</WhoFollowBtn>
         <WhoFollowCard>
           <WhoFollowAvatar src={epiphany} />
-          <WhoFollowName>Epiphany Search</WhoFollowName>
+          <WhoFollowName to="/epiphanysearch">Epiphany Search</WhoFollowName>
           <WhoFollowAdress>@Epiph...</WhoFollowAdress>
         </WhoFollowCard>
         <WhoFollowBtn>Follow</WhoFollowBtn>
 
         <FindPeople>
-          <PeopleIcon src={people} />Find people you know
+          <PeopleIcon src={people} />
+          <SmallLink to="/who_to_follow/import">Find people you know</SmallLink>
         </FindPeople>
       </WhoToFollow>
       <Trends>
         <WhoFollowSection>
           <WhoFollowText>United Kingdom Trends</WhoFollowText>
-          <AdditionalLink>· Change</AdditionalLink>
+          <SmallLink to="/EveryInteract#">· Change</SmallLink>
         </WhoFollowSection>
 
         <TrendLink to="/hashtag/BringYourDogToWorkDay">

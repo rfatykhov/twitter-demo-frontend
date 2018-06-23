@@ -54,6 +54,7 @@ const Logo = styled.button`
   background: transparent;
   border: none;
   outline: none;
+  cursor: pointer;
 `;
 
 const Rightbar = styled.div`
@@ -105,6 +106,7 @@ const TweetButton = styled.button`
   font-size: 12px;
   padding-top: 5px 0;
   font-weight: bold;
+  cursor: pointer;
   border-radius: 100px;
   border: none;
   outline: none;
@@ -114,8 +116,9 @@ const TweetButton = styled.button`
   }
 `;
 
-const AvatarSmall = styled.div`
+const AvatarSmall = styled(Link)`
   padding: 0 10px;
+  cursor: pointer;
 `;
 
 const Name = styled.div`
@@ -154,7 +157,7 @@ const Header = () => {
           <SearchButton />
         </Search>
 
-        <AvatarSmall>
+        <AvatarSmall to="/settings">
           <img src={avatarsmall} alt="User picture" />
         </AvatarSmall>
 

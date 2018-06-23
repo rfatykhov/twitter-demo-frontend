@@ -60,6 +60,7 @@ const FollowButton = styled.button`
   padding-bottom: 5px;
   border: 1px solid #1da1f2;
   outline: none;
+  cursor: pointer;
   &:hover {
     background-color: #ecebea;
   }
@@ -69,7 +70,7 @@ const MoreButton = styled.button`
   background: transparent;
   outline: none;
   border: none;
-  coursor: pointer;
+  cursor: pointer;
 `;
 
 const TweetStatistics = () => {

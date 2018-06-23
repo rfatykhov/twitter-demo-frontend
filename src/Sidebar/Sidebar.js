@@ -30,6 +30,14 @@ import article from "../Tweet/Assets/Article.png";
 import pinned from "../Tweet/Assets/PinnedIcon.svg";
 import ToFollow from "../ToFollow/ToFollow";
 
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  Switch
+} from "react-router-dom";
+
 //Sidebar top section styling
 
 const Information = styled.div``;
@@ -51,6 +59,20 @@ const User = styled.div`
   padding-left: 5px;
 `;
 
+const UserLink = styled(Link)`
+  color: #697787;
+  font-size: 15px;
+  text-decoration: none;
+  padding-right: 5px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 const FollowStatus = styled.div`
   display: inline-block;
   font-size: 13px;
@@ -66,28 +88,13 @@ const Description = styled.p`
   padding-left: 5px;
 `;
 
-const Additional = styled.ul`
-  margin-left: 20px;
-`;
-const SmallIcon = styled.img`
-  padding: 0 5px;
-`;
-
-const AddInfo = styled.li`
-  font-size: 15px;
-  color: grey;
-  display: flex;
-  padding: 7px 0;
-`;
-
-const AdditionalTitle = styled.div``;
-
 const AvatarBig = styled.div`
   overflow: auto;
   position: absolute;
   z-index: 1;
   width: 350px;
   top: 210px;
+  cursor: pointer;
 `;
 
 const SideBarButton = styled.button`
@@ -138,6 +145,7 @@ const ProfileNavElement = styled.li`
   color: #1da1f2;
   font-size: 20px;
   font-weight: bold;
+  cursor: pointer;
   padding-right: 30px;
 
   &:first-child {
@@ -202,6 +210,24 @@ const WhoFollowAdress = styled.div`
   font-color: #707e88;
 `;
 
+const Additional = styled.ul`
+  margin-left: 20px;
+`;
+const SmallIcon = styled.img`
+  padding: 0 5px;
+  width: 15px;
+  height: 15px;
+`;
+
+const AddInfo = styled.li`
+  font-size: 15px;
+  color: grey;
+  display: flex;
+  padding: 7px 0;
+`;
+
+const AdditionalTitle = styled.div``;
+
 const AdditionalLink = styled.div`
   display: inline-block;
   font-size: 13px;
@@ -213,6 +239,24 @@ const WhoFollowAvatar = styled.img`
   display: flex;
   width: 48px;
   height: 48px;
+`;
+
+const StyledLink = styled(Link)`
+  color: #0072bb;
+  font-size: 15px;
+  text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const Hashtag = styled.div`
+  font-size: 15px;
+  color: #blue;
 `;
 
 class Sidebar extends Component {
@@ -259,7 +303,8 @@ class Sidebar extends Component {
               <SmallIcon src={approved} alt="Verified" />
             </TwitterName>
             <User>
-              @EveryInteract <FollowStatus>Follows you</FollowStatus>
+              <UserLink to="/EveryInteract">@EveryInteract</UserLink>
+              <FollowStatus>Follows you</FollowStatus>
             </User>
 
             <Description>
@@ -274,7 +319,9 @@ class Sidebar extends Component {
               </AddInfo>
               <AddInfo>
                 <SmallIcon src={link} alt="Direct link" />
-                <AdditionalTitle>everyinteraction.com</AdditionalTitle>
+                <StyledLink to="https://www.everyinteraction.com/">
+                  everyinteraction.com
+                </StyledLink>
               </AddInfo>
               <AddInfo>
                 <SmallIcon src={calendar} alt="First joined" />
@@ -287,7 +334,9 @@ class Sidebar extends Component {
             <Additional>
               <AddInfo>
                 <SmallIcon src={followers} alt="Number of followers you know" />
-                <AdditionalTitle>6 Followers you know</AdditionalTitle>
+                <StyledLink to="/followers_you_follow">
+                  6 Followers you know
+                </StyledLink>
               </AddInfo>
               <FollowersImg>
                 <img src={followersOne} />
@@ -299,7 +348,7 @@ class Sidebar extends Component {
               </FollowersImg>
               <AddInfo>
                 <SmallIcon src={media} alt="Photos and videos" />
-                <AdditionalTitle>522 Photos and videos</AdditionalTitle>
+                <StyledLink to="/media">522 Photos and videos</StyledLink>
               </AddInfo>
               <MediaImg>
                 <img src={mediaOne} />

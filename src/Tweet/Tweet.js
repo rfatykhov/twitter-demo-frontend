@@ -9,10 +9,15 @@ import avatartweet from "./Assets/AvatarTweet.png";
 const TweetWrapping = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 15px 15px;
+  padding-top: 0px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
   border-bottom: 1px solid #e1e8ed;
   background-color: #ffffff;
   cursor: pointer;
+    &:hover {
+    background-color: #f5f8fa;
 `;
 
 // Pinned tweet styling
