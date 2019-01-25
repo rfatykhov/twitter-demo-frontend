@@ -6,7 +6,6 @@ import calendar from "./Assets/Calendar.svg";
 import link from "./Assets/Link.svg";
 import location from "./Assets/Location.svg";
 import avatarbig from "./Assets/Avatar Big.png";
-import App from "../App";
 import "./Sidebar.css";
 import Tweet from "../Tweet/Tweet";
 

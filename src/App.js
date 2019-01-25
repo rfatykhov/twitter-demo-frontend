@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import UserFeed from "./UserFeed";
 import { Helmet } from "react-helmet";
 import {
